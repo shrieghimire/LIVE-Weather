@@ -23,7 +23,7 @@ function App() {
         <input
           value={location}
           onChange={(event) => setLocation(event.target.value)}
-          onKeyPress={searchLocation}
+          onKeyDown={searchLocation}
           placeholder="Enter Location"
           type="text"
         />
@@ -57,7 +57,7 @@ function App() {
             </div>
             <div className="wind">
               {data.wind ? (
-                <p className="bold">{data.wind.speed.toFixed()} MPH</p>
+                <p className="bold">{data.wind.speed.toFixed() * 1.8} Km/H</p>
               ) : null}
               <p>Wind Speed</p>
             </div>
