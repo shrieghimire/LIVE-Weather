@@ -31,25 +31,24 @@ function App() {
       <div className="container">
         <div className="top">
           <div className="location">
-            <p>{data.name}</p>
+            <h2>{data.name}</h2>
           </div>
           <div className="temp">
             {data.main ? (
               <h1>{Math.round((data.main.temp - 32) * (5 / 9))}°C</h1>
             ) : null}
-
-            {/* <br /> */}
-            {/* <h2>{Math.round(data.main.temp)}°F</h2> */}
           </div>
           <div className="description">
             {data.weather ? (
-              <img
-                className="weather-img"
-                src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
-                alt="ss"
-              />
+              <>
+                <img
+                  className="weather-img"
+                  src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
+                  alt="img"
+                />
+                <p>{data.weather[0].main}</p>
+              </>
             ) : null}
-            {data.weather ? <p>{data.weather[0].main}</p> : null}
           </div>
         </div>
 
@@ -69,7 +68,7 @@ function App() {
             </div>
             <div className="wind">
               {data.wind ? (
-                <p className="bold">{Math.round(data.wind.speed * 1.8)} Km/H</p>
+                <p className="bold">{Math.round(data.wind.speed * 1.8)} Km/h</p>
               ) : null}
               <p>Wind Speed</p>
             </div>
