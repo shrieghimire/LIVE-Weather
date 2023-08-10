@@ -15,6 +15,8 @@ export const WeatherCard = () => {
         await axios.get(url).then((response) => {
           setData(response.data);
           console.log(response.data);
+
+          document.title = response.data.name + " - LIVE Weather";
         });
         setLocation("");
       }
