@@ -7,7 +7,9 @@ export const WeatherCard = () => {
   const [location, setLocation] = useState("");
   const [errMsg, setErrMsg] = useState([]);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=072adcf29a78e211bf5f638bfe5a26eb`;
+  const trimmedValue = location.trim(); // Trims spaces at the beginning and end
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${trimmedValue}&units=imperial&appid=072adcf29a78e211bf5f638bfe5a26eb`;
 
   const searchLocation = async (event) => {
     try {
@@ -15,7 +17,6 @@ export const WeatherCard = () => {
         await axios.get(url).then((response) => {
           setData(response.data);
           console.log(response.data);
-
           document.title = response.data.name + " - LIVE Weather";
         });
         setLocation("");
