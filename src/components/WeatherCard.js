@@ -30,10 +30,6 @@ export const WeatherCard = () => {
     }
   };
 
-  const isValue = () => {
-    return data.name ? true : false;
-  };
-
   return (
     <div className="app">
       <div className="search">
@@ -47,7 +43,7 @@ export const WeatherCard = () => {
         {/* {errMsg === 404 && <p>Enter a valid Location</p>} */}
       </div>
       <div>
-        {isValue() ? (
+        {data.main ? (
           <div className="container">
             <div className="top">
               <div className="location">
