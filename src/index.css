@@ -62,8 +62,8 @@ h1 {
   border-color: #fff;
   border-width: 2px;
   max-width: 600px;
-  height: 500px;
-  margin: auto;
+  height: 600px;
+  margin: 1rem auto;
   padding: 0 1rem;
   position: relative;
   top: 10%;
@@ -86,7 +86,7 @@ h1 {
   justify-content: space-evenly;
   text-align: center;
   width: 100%;
-  margin: 7.5rem auto;
+  margin: 1rem auto;
   padding: 0.5rem;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.2);

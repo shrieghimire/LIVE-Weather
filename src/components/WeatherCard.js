@@ -12,12 +12,17 @@ export const WeatherCard = () => {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${trimmedValue}&units=imperial&appid=072adcf29a78e211bf5f638bfe5a26eb`;
 
   const searchLocation = async (event) => {
+    errMsg === 404 && <p>Enter a valid Location</p>;
+
     try {
       if (event.key === "Enter") {
         await axios.get(url).then((response) => {
           setData(response.data);
           console.log(response.data);
-          document.title = response.data.name + " - LIVE Weather";
+          document.title =
+            response.data.name +
+            ` [${response.data.sys.country}]` +
+            " - LIVE Weather";
         });
         setLocation("");
       }
@@ -40,8 +45,8 @@ export const WeatherCard = () => {
           placeholder="Enter Location"
           type="text"
         />
-        {/* {errMsg === 404 && <p>Enter a valid Location</p>} */}
       </div>
+      {errMsg === 404 && <p>Enter a valid Location</p>}
       <div>
         {data.main ? (
           <div className="container">
@@ -98,7 +103,7 @@ export const WeatherCard = () => {
           </div>
         ) : (
           <div className="loader">
-            {errMsg === 404 && <p>Enter a valid Location</p>}
+            {errMsg === 404 && <h4>Enter a valid Location</h4>}
             <img src={loader} alt="loader"></img>
           </div>
         )}
